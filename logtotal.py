@@ -50,11 +50,11 @@ def joinjson(message):  # 生成json格式
 
 
 def checknewlog():
-    if os.path.exists(newlog.log):
-        logtime = time.strftime('%Y-%m-%d', time.localtime(os.path.getmtime(pos)))
+    if os.path.exists(jsonfile):
+        logtime = time.strftime('%Y-%m-%d', time.localtime(os.path.getmtime(jsonfile)))
         if logtime != time.strftime('%Y-%m-%d'):
             try:
-                os.rename(newlog.log, newlog.log + '_' + logtime)
+                os.rename(jsonfile, jsonfile + '_' + logtime)
             except:
                 pass
 
