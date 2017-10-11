@@ -49,6 +49,16 @@ def joinjson(message):  # 生成json格式
     f.close()
 
 
+def checknewlog():
+    if os.path.exists(newlog.log):
+        logtime = time.strftime('%Y-%m-%d', time.localtime(os.path.getmtime(pos)))
+        if logtime != time.strftime('%Y-%m-%d'):
+            try:
+                os.rename(newlog.log, newlog.log + '_' + logtime)
+            except:
+                pass
+
+
 def joinmessage(data):  # 通过列表拼接字符串
     global templist
     if len(templist) == 1:  # 如果只存在一个元素，直接调用json生成函数
@@ -97,7 +107,7 @@ def handler(message):  # 把新读到的日志加入列表
 
 def checkpos():  # 检查位置文件信息，如果更改时间不是当天就备份出来
     global pos
-    print(pos, 'posaaaa')
+    # print(pos, 'posaaaa')
     if os.path.exists(pos):
         postime = time.strftime('%Y-%m-%d', time.localtime(os.path.getmtime(pos)))
         if postime != time.strftime('%Y-%m-%d'):
