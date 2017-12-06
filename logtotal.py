@@ -9,7 +9,7 @@
 # Date： 2017-1-13
 # E-mail: 32415397@qq.com
 # -------------------------------------------
-# change: longyucen
+# change user: longyucen
 # change date:2017-10-09
 # Version: 1.1
 # chnage message:
@@ -19,7 +19,7 @@ import sys
 import os
 import shutil
 import logging.config
-import datetime, time
+import time, datetime
 
 BASE_DIR = os.path.dirname(__file__)  # 程序目录
 
